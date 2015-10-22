@@ -23,7 +23,7 @@ function temperature_colour {
 	
     case "$OSTYPE" in
         linux*)
-            local Temperature=$(cat /sys/class/thermal/thermal_zone0/temp | perl -pe "s/(-?[0-9]*)[0-9]{3}/\1/")
+            local Temperature=$(($(cat /sys/class/thermal/thermal_zone0/temp) / 100))
             ;;
         darwin*)
             hash osx-cpu-temp && local Temperature=$(osx-cpu-temp | cut -d . -f1)
