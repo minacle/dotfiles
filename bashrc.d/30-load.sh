@@ -32,7 +32,7 @@ function load_colour {
 	then
         printf $UnknownColour
 	else
-        Load=${Load//.}
+        Load=$((10#${Load//.}))
 		if [ $(($Load / $ProcessCount)) -lt $Medium ]
 		then
             printf $NormalColour
